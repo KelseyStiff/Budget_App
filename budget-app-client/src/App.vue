@@ -9,11 +9,13 @@
 
       <!-- displays balance of income - calling the incomeTotal computed property-->
       <div id="income-style">
+        <p>income</p>
         <h1>${{ incomeTotal }}</h1>
       </div>
 
       <!-- displays balance of expenses - calling the expenseTotal computed property -->
       <div id="expense-style">
+        <p>expense</p>
         <h1>${{ expenseTotal }}</h1>
       </div>
       <br>
@@ -172,12 +174,13 @@ export default {
   background: white;
   float: left;
   width: auto;
+  bottom: 20px;
   min-width: 150px;
   max-width: 300px;
   overflow: auto;
   margin-left: 50px;
   border-radius: 25px;
-  padding: 5px;
+  padding: 2px;
   box-shadow: 5px 5px 8px #d5fffb;
   text-align: center;
 }
@@ -187,12 +190,13 @@ export default {
   background: white;
   float: right;
   width: auto;
+  bottom: 20px;
   min-width: 150px;
   max-width: 300px;
   display: inline-block;
   margin-right: 50px;
   border-radius: 25px;
-  padding: 5px;
+  padding: 2px;
   box-shadow: 5px 5px 8px #d5fffb;
   text-align: center;
 }
