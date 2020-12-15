@@ -39,7 +39,7 @@
 
     <div id="chart-style">
       <!-- chart component for viewing expense transactions by category-->
-      <budget-chart v-bind:chartData="chartData"></budget-chart>
+      <budget-chart v-if="allExpenses" v-bind:chartData="chartData"></budget-chart>
     </div>
 
     <div id="creds">
@@ -116,37 +116,49 @@ export default {
   },
   computed: {
     chartData() {
-      let labels = this.allExpenses.map(rec => rec.category)
-      let amounts = this.allExpenses.map(rec => rec.amount)
+        let labels = this.allExpenses.map(rec => rec.category)
+        let amounts = this.allExpenses.map(rec => rec.amount)
 
-      return {
-        labels: labels,
-        datasets: [ {
-          label: 'amount for category',
-          data: amounts,
-          backgroundColor: ['#ecb1d1','#84CEEB','#5AB9EA','#d9c4fd', '#8860D0','#8860D0','#C4FFDB','#E483F8','#6AFFC1']
-        }]
-      }
+        return {
+          labels: labels,
+          datasets: [ {
+            label: 'amount for category',
+            data: amounts,
+            backgroundColor: ['#ecb1d1','#84CEEB','#5AB9EA','#d9c4fd', '#8860D0','#8860D0','#C4FFDB','#E483F8','#6AFFC1']
+          }]
+        }
     },
     //calcs the total of all expense amounts
     expenseTotal: function (){
-      //learned how to use .reduce method on stack overflow (by: OwChallie)
-      return this.allExpenses.reduce(function (prev, cur) {
-        return prev + cur.amount;
-      }, 0)
-
+      //checking if allExpenses exists before trying to work with it
+      if(this.allExpenses){
+        //learned how to use .reduce method on stack overflow (by: OwChallie)
+        return this.allExpenses.reduce(function (prev, cur) {
+          return prev + cur.amount;
+        }, 0)
+      }
     },
     //calcs total of all incomes using .reduce
     incomeTotal: function (){
-      return this.allIncomes.reduce(function (prev,cur){
-        return prev + cur.amount
-      }, 0)
+      //checking if allIncomes exists before calc
+      if(this.allIncomes){
+        return this.allIncomes.reduce(function (prev,cur){
+          return prev + cur.amount
+        }, 0)
+      }
     },
+
     //calcs balance of income - expense
     balance: function (){
-      return this.incomeTotal - this.expenseTotal
+      if(this.allIncomes){
+        return this.incomeTotal
+      } if (this.allExpenses){
+        return this.expenseTotal
+      } else {
+        return this.incomeTotal - this.expenseTotal
+      }
     }
-  }
+  },
 
 }
 </script>
