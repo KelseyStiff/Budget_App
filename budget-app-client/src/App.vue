@@ -150,9 +150,9 @@ export default {
 
     //calcs balance of income - expense
     balance: function (){
-      if(this.allIncomes){
+      if(this.allIncomes && !this.allExpenses){
         return this.incomeTotal
-      } if (this.allExpenses){
+      } if (this.allExpenses && !this.allIncomes){
         return this.expenseTotal
       } else {
         return this.incomeTotal - this.expenseTotal
@@ -224,15 +224,16 @@ export default {
 #table-style{
   float: left;
   height: 300px;
-  display: inline-block;
-  margin-left: 40px;
+  display: block;
+  margin-left: 60px;
+  margin-bottom: 100px;
 }
 
 #chart-style {
   float: right;
   width: auto;
-  display: inline-block;
-  padding: 0px 25px 5px 5px;
+  display: block;
+  padding: 20px 25px 5px 5px;
   margin-right: auto;
 }
 

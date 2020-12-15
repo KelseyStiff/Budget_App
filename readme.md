@@ -12,13 +12,12 @@ By: Kelsey Stiff
 * all expenses are added to a chart for viewing
 * user can delete transactions by selecting delete checkbox
 
-##KNOWN BUGS:
+##KNOWN BUGS/ISSUES:
 
-###*App doesnt start working until an Income transaction AND an Expense transaction have been added and page is refreshed
+* Balance shows as NAN until a transaction is entered
+* No validation on if income/expense radio button is selected 
+(which allows a transaction to be entered without a Type or Category and adds automatically to income total) 
 
-###* Deleting a transaction also does not work because of same issue - a income and expense transaction must both exist for page to live update
-
-* No validation on if income/expense radio button is selected
 
 
 
