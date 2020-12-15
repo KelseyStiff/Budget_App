@@ -1,7 +1,9 @@
+//import axios library to make requests from Vue client to to Express API server
 import axios from 'axios'
 
-export default {
 
+//make requests to the api route - returns JSON data
+export default {
     getAllBudgetTransactions() {
         return axios.get('/api/budget_transactions').then( response => {
             return response.data

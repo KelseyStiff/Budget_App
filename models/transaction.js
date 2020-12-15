@@ -1,3 +1,4 @@
+//defines database columns and data types for BudgetTransaction database
 module.exports = (sequelize, DataTypes) => {
 
     let BudgetTransaction = sequelize.define('BudgetTransaction', {
@@ -17,6 +18,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: true
         },
+        date: {
+            type:DataTypes.DATE
+        }
 
     })
 

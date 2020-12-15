@@ -1,10 +1,15 @@
+//creates and starts server
 var express = require('express')
 var bodyParser = require('body-parser')
 var api_routes = require('./routes/api.js')
+
+//tells express where to find /dist files
 var path = require('path')
 
 // App configuration
 var app = express()
+
+//serve static files via express
 app.use(express.static(path.join(__dirname, 'budget_transaction', 'dist')))
 
 app.use(bodyParser.json())

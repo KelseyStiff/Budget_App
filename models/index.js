@@ -1,3 +1,4 @@
+//setting up sequelize using config.json
 let {Sequelize, DataTypes } = require('sequelize')
 
 let env = process.env.NODE_ENV || 'development'
